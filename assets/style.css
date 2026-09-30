@@ -1,0 +1,325 @@
+:root {
+  --desk: #1b1712;
+  --panel: #241f18;
+  --paper: #f4ead6;
+  --paper-2: #ebe1cc;
+  --ink: #1c1712;
+  --muted: #6b5f50;
+  --rule: #d7cbb3;
+  --mark: #9d2f1a;
+  --mark-soft: #f0d6cc;
+  --ok: #1f5b42;
+  --ok-soft: #d7eadf;
+  --gold: #a67c32;
+  --chip: #efe4ce;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background:
+    radial-gradient(1200px 500px at 0% 0%, #2c2419 0%, transparent 50%),
+    var(--desk);
+  color: var(--paper);
+}
+button { -webkit-tap-highlight-color: transparent; }
+
+#app { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+
+.sidebar {
+  background: var(--panel);
+  border-right: 1px solid #3a3226;
+  padding: 28px 18px 48px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+}
+.brand {
+  font-family: Newsreader, serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+.brand span { color: var(--gold); }
+.tagline {
+  color: #b7a78d;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin: 0 0 28px;
+}
+.nav-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a7b66;
+  margin: 0 0 10px;
+}
+.nav-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: #ddd1bb;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font: inherit;
+}
+.nav-item:hover { background: #312a21; }
+.nav-item.active { background: #3b3126; color: #fff8ea; }
+.nav-item .num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  color: var(--gold);
+  width: 22px;
+  flex: none;
+}
+.nav-item .ttl { font-size: 13.5px; }
+.progress-mini {
+  margin-top: 22px;
+  padding: 12px;
+  background: #1b1712;
+  border: 1px solid #3a3226;
+  border-radius: 10px;
+  color: #cbbfa8;
+  font-size: 12px;
+}
+
+.main { padding: 36px 48px 80px; }
+.sheet {
+  max-width: 920px;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 6px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+.sheet-head {
+  padding: 36px 40px 28px;
+  border-bottom: 1px solid var(--rule);
+  background:
+    linear-gradient(180deg, #f7f0e0, var(--paper));
+}
+.kicker {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mark);
+  margin: 0 0 8px;
+}
+.sheet-head h1 {
+  font-family: Newsreader, serif;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.lede { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 62ch; }
+.sheet-body { padding: 8px 40px 40px; }
+
+.method {
+  margin: 24px 0;
+  padding: 18px 20px;
+  background: var(--paper-2);
+  border-left: 3px solid var(--gold);
+}
+.method h2 {
+  font-family: Newsreader, serif;
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+.method ol, .method ul { margin: 0; padding-left: 18px; }
+.method li { margin: 6px 0; line-height: 1.5; }
+.catalog {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+.cat {
+  background: #fffaf0;
+  border: 1px solid var(--rule);
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.cat b { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--mark); margin-bottom: 4px; letter-spacing: 0.04em; }
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0 6px;
+}
+.btn {
+  border: 1px solid #c9bba0;
+  background: #fffaf0;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--ink); }
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn.danger { background: var(--mark); color: white; border-color: var(--mark); }
+.chip {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: #5c4e3b;
+}
+.chip.fondasi { background: #e7efe4; color: #215338; }
+.chip.seleksi { background: #efe6c8; color: #6b4e10; }
+.chip.brutal { background: var(--mark-soft); color: var(--mark); }
+.chip.otb { background: #e4e0f4; color: #3d2f78; }
+
+.q {
+  padding: 22px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.q-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px; }
+.q-id { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); }
+.stem { font-size: 18px; line-height: 1.45; margin: 0 0 14px; font-family: Newsreader, serif; }
+.stem p { margin: 0 0 8px; }
+.options { display: grid; gap: 8px; margin: 0 0 14px; }
+.opt {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  background: #fffaf0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+.opt:hover { border-color: #b9a888; }
+.opt.picked { border-color: var(--ink); background: #efe6d0; }
+.opt.correct { border-color: var(--ok); background: var(--ok-soft); }
+.opt.wrong { border-color: var(--mark); background: var(--mark-soft); }
+.opt .letter {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  width: 18px;
+  flex: none;
+}
+.visual {
+  background: #fffaf0;
+  border: 1px solid var(--rule);
+  padding: 16px;
+  margin: 0 0 14px;
+  overflow-x: auto;
+}
+.visual svg { display: block; margin: 0 auto; }
+
+.answer {
+  display: none;
+  margin-top: 12px;
+  background: #fffaf0;
+  border: 1px solid var(--rule);
+  padding: 16px 18px;
+}
+.answer.open { display: block; }
+.answer h3 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 16px 0 6px;
+  color: var(--mark);
+}
+.answer h3:first-child { margin-top: 0; }
+.answer p, .answer li { line-height: 1.55; font-size: 14.5px; }
+.answer ol { margin: 0; padding-left: 18px; }
+.keyline {
+  font-family: Newsreader, serif;
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.timer {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  color: var(--mark);
+}
+.note { color: var(--muted); font-size: 14px; line-height: 1.5; }
+
+@media (max-width: 920px) {
+  #app { grid-template-columns: 1fr; }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    height: auto;
+    max-height: none;
+    padding: calc(12px + env(safe-area-inset-top)) 14px 12px;
+    border-right: 0;
+    border-bottom: 1px solid #3a3226;
+  }
+  .tagline, .progress-mini { display: none; }
+  .nav-label { margin-bottom: 8px; }
+  .sidebar .nav-item { display: none; }
+  .sidebar { padding-bottom: 10px; }
+  .main { padding: 12px 12px calc(24px + env(safe-area-inset-bottom)); }
+  .sheet-head, .sheet-body { padding-left: 16px; padding-right: 16px; }
+  .sheet-head { padding-top: 22px; }
+  .sheet-head h1 { font-size: 28px; }
+  .catalog { grid-template-columns: 1fr; }
+  .lede { font-size: 15px; }
+  .stem { font-size: 17px; }
+  .opt, .btn, .nav-item { min-height: 44px; }
+  .opt { padding: 12px 14px; }
+  .visual svg { max-width: 100%; height: auto; }
+}
+
+.mobile-nav {
+  display: none;
+}
+@media (max-width: 920px) {
+  .mobile-nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 4px;
+    margin: 0 -2px;
+  }
+  .mobile-nav button {
+    flex: none;
+    border: 0;
+    background: #312a21;
+    color: #ddd1bb;
+    font: inherit;
+    font-size: 13px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    min-height: 40px;
+  }
+  .mobile-nav button.active {
+    background: #efe4ce;
+    color: #1c1712;
+  }
+  .mobile-nav .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    color: var(--gold);
+    margin-right: 4px;
+  }
+  .mobile-nav button.active .num { color: var(--mark); }
+}
